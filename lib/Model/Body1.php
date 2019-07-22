@@ -64,7 +64,7 @@ class Body1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'picture' => null    ];
+        'picture' => 'binary'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

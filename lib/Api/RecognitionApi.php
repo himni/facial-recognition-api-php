@@ -291,7 +291,8 @@ class RecognitionApi
 
         // form params
         if ($picture !== null) {
-            $formParams['picture'] = ObjectSerializer::toFormValue($picture);
+            $multipart = true;
+            $formParams['picture'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($picture), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -303,7 +304,7 @@ class RecognitionApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded']
+                ['multipart/form-data']
             );
         }
 
@@ -562,7 +563,8 @@ class RecognitionApi
 
         // form params
         if ($picture !== null) {
-            $formParams['picture'] = ObjectSerializer::toFormValue($picture);
+            $multipart = true;
+            $formParams['picture'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($picture), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -574,7 +576,7 @@ class RecognitionApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded']
+                ['multipart/form-data']
             );
         }
 

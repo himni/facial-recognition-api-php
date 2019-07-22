@@ -296,7 +296,8 @@ class FaceApi
 
         // form params
         if ($picture !== null) {
-            $formParams['picture'] = ObjectSerializer::toFormValue($picture);
+            $multipart = true;
+            $formParams['picture'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($picture), 'rb');
         }
         // form params
         if ($meta !== null) {
@@ -312,7 +313,7 @@ class FaceApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded']
+                ['multipart/form-data']
             );
         }
 

@@ -65,7 +65,7 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'picture' => null,
+        'picture' => 'binary',
 'meta' => null    ];
 
     /**
